@@ -8,7 +8,12 @@ $( document ).ready(function(){
 		setTimeout(function(){
 			$('#menu').css({ "display": "none" });
 			$('#back').css({ "display": "block"}).animate({ opacity: 0.2 }, 200);
-			$('#playzone').css({ "display": "inline-block" }).animate({ opacity: 1 }, 200)
+			$('#playzone').css({ "display": "block" }).animate({ opacity: 1 }, 200)
+
+			bonsai.run(
+				document.getElementById('playzone'),
+				"experiments/" + id + ".js");
+
 		}, 200);
 	});
 
