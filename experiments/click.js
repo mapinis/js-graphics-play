@@ -4,7 +4,13 @@ var sides = 1;
 var color = 'blue';
 
 new Circle(cen, cen, 5).fill(color).addTo(stage);
-var current = new Path().moveTo(cen, cen).stroke(color, 3).addTo(stage);
+var current = new Path().moveTo(cen, cen).attr({ rotation: 0, origin: { x: cen, y: cen } }).stroke(color, 3).addTo(stage);
+console.log(current.attr('origin'));
+
+current.animate(new KeyframeAnimation('4s', {
+	from: { rotation: 0 },
+	to: { rotation: 2 * Math.PI }
+}, { repeat: Infinity }));
 
 stage.on('click', function(e){
 	sides++;
